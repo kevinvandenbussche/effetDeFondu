@@ -1,0 +1,133 @@
+$colorBody: rgb(191,187,201);
+$fontLi: 'Raleway', sans-serif;
+$flex: flex;
+$fontText: 'Roboto Mono', monospace;
+$colorTitle:  rgb(86,63,139);
+$colorHeader:rgb(39,38,46);
+$colorLink:white;
+
+@mixin img($color, $textColor){
+    position: relative;
+    width:23%;
+    article{
+        opacity: 0;
+        transition: opacity .5s ease;
+        background-color: $color;
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        color:$textColor;
+        font-family: $fontLi;
+    }
+    &:hover{
+        article{
+            opacity: 1;
+        }
+    }
+}
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+.resp{
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+}
+
+html{
+    overflow-y: hidden;
+}
+
+a{
+    text-decoration: none;
+    color:$colorLink;
+}
+
+body{
+    background-color: $colorBody;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header{
+    display: $flex;
+    background-color: $colorHeader;
+    justify-content: space-between;
+    padding: 30px 0 30px 0;
+    ul{
+        display: $flex;
+        li{
+            font-family: $fontLi;
+            list-style: none;
+            margin-right: 10px;
+        }
+    }
+}
+
+h2{
+    text-align: center;
+    font-family: $fontText;
+    font-weight: 600;
+    font-size: 3rem;
+    color: $colorTitle;
+    padding-bottom: 20px;
+}
+
+.container{
+    display: $flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 auto;
+    gap: 10px;
+    h3, p{
+      text-align: center;  
+    }
+    h3{
+        padding: 20px;
+        font-size: 2rem;
+    }
+    p{
+        padding: 5px;
+    }
+    div{
+        &:nth-child(1){
+            @include img(red, white);
+        }
+        &:nth-child(2){
+            @include img(orange, black)
+        }
+        &:nth-child(3){
+            @include img(grey, purple)
+        }
+        &:nth-child(4){
+            @include img(purple, grey)
+        }
+    }
+}
+
+footer{
+    background-color: $colorHeader;
+    ul{
+        display: flex;
+        justify-content: center;
+        padding: 30px 0 30px 0;
+        a{
+            &:nth-child(1){
+                border-right: 2px solid $colorLink;
+                padding-right: 10px;
+            }
+            margin-left: 10px;
+            list-style: none;
+            color: $colorLink;
+            font-family: $fontLi;
+        }
+    }
+}
+
